@@ -165,6 +165,13 @@
 "abbrev@1":
   "version" "1.1.1"
 
+"abort-controller@^3.0.0":
+  "integrity" "sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg=="
+  "resolved" "https://registry.npmjs.org/abort-controller/-/abort-controller-3.0.0.tgz"
+  "version" "3.0.0"
+  dependencies:
+    "event-target-shim" "^5.0.0"
+
 "agent-base@6":
   "version" "6.0.2"
   dependencies:
@@ -356,6 +363,11 @@
     "split" "0.3"
     "stream-combiner" "~0.0.4"
     "through" "~2.3.1"
+
+"event-target-shim@^5.0.0":
+  "integrity" "sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ=="
+  "resolved" "https://registry.npmjs.org/event-target-shim/-/event-target-shim-5.0.1.tgz"
+  "version" "5.0.1"
 
 "form-data@^3.0.0":
   "version" "3.0.1"
@@ -699,6 +711,11 @@
   dependencies:
     "through" "~2.3"
 
+"petitio@^1.4.0":
+  "integrity" "sha512-9LaVd/5BLmbNU8Q4Ax8NezihiPt2ISNqi2vKilEchSSf+YSOXxfsLUb0SUmDskm1WkBOVTsqdyuyYI0RYKqr0Q=="
+  "resolved" "https://registry.npmjs.org/petitio/-/petitio-1.4.0.tgz"
+  "version" "1.4.0"
+
 "pidtree@^0.3.0":
   "version" "0.3.1"
 
@@ -783,6 +800,15 @@
 
 "shell-quote@^1.6.1":
   "version" "1.7.3"
+
+"shoukaku@^2.1.5":
+  "integrity" "sha512-sAQ7m9qhpxV5SwuzcZ4JvbDqv3OGyyAH1qNvfpbvEk/ZkE+JwbpXqGyUWM8yKIbpNsHiG2217Jjc7fPBc8+TJg=="
+  "resolved" "https://registry.npmjs.org/shoukaku/-/shoukaku-2.1.5.tgz"
+  "version" "2.1.5"
+  dependencies:
+    "abort-controller" "^3.0.0"
+    "petitio" "^1.4.0"
+    "ws" "^8.5.0"
 
 "side-channel@^1.0.4":
   "version" "1.0.4"
@@ -962,7 +988,7 @@
 "wrappy@1":
   "version" "1.0.2"
 
-"ws@^8.4.0":
+"ws@^8.4.0", "ws@^8.5.0":
   "version" "8.5.0"
 
 "yallist@^4.0.0":

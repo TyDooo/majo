@@ -1,5 +1,6 @@
 import { container, LogLevel, SapphireClient } from '@sapphire/framework';
 import { Libraries, Shoukaku } from 'shoukaku';
+import { QueueStore } from './music/QueueStore';
 
 export class MajoClient extends SapphireClient {
 	public constructor() {
@@ -23,6 +24,7 @@ export class MajoClient extends SapphireClient {
 				'DIRECT_MESSAGE_REACTIONS'
 			]
 		});
+		container.queueStore = new QueueStore();
 	}
 
 	public override login(token?: string) {
@@ -44,5 +46,6 @@ export class MajoClient extends SapphireClient {
 declare module '@sapphire/pieces' {
 	interface Container {
 		shoukaku: Shoukaku;
+		queueStore: QueueStore;
 	}
 }

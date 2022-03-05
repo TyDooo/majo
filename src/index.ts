@@ -1,5 +1,5 @@
 import './lib/setup';
-import { MajoClient } from './majo';
+import { MajoClient } from './lib/Majo';
 
 const client = new MajoClient();
 

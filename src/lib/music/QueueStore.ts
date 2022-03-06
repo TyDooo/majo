@@ -2,7 +2,7 @@ import { container } from '@sapphire/framework';
 import { Collection, TextBasedChannel, VoiceBasedChannel } from 'discord.js';
 import { Queue } from './Queue';
 
-export class QueueStore extends Collection<String, Queue> {
+export class QueueStore extends Collection<string, Queue> {
 	public async connect(channel: VoiceBasedChannel, textChannel: TextBasedChannel): Promise<Queue> {
 		if (this.has(channel.guild.id)) throw new Error('Already in a channel');
 		const node = container.shoukaku.getNode();

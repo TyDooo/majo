@@ -14,16 +14,15 @@ export class Queue extends Array<ShoukakuTrack> {
 	) {
 		super();
 
-		this.player.on('start', () => {
+		this.player.on('start', async () => {
 			if (!this._nowPlaying) return;
-			this.textChannel.send(`Now playing \`${this._nowPlaying.info.title}\`!`);
+			await this.textChannel.send(`Now playing \`${this._nowPlaying.info.title}\`!`);
 		});
 		this.player.on('end', () => {
 			this.next();
 		});
 		for (const event of ['closed', 'error']) {
-			// @ts-ignore
-			this.player.on(event, (data: any) => {
+			this.player.on(event as any, (data: any) => {
 				if (data instanceof Error || data instanceof Object) container.client.logger.error(data);
 				this.length = 0;
 				this.player.connection.disconnect();

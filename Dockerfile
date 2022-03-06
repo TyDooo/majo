@@ -50,6 +50,7 @@ ENTRYPOINT ["dumb-init", "--"]
 
 # Development, used for development only (defaults to watch command)
 FROM base as development
+USER node
 
 ENV NODE_ENV="development"
 

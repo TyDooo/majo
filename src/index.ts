@@ -1,5 +1,6 @@
 import './lib/setup';
 import { MajoClient } from './lib/Majo';
+import { container } from '@sapphire/framework';
 
 const client = new MajoClient();
 
@@ -15,4 +16,4 @@ const main = async () => {
 	}
 };
 
-main();
+main().catch(container.logger.error.bind(container.logger));

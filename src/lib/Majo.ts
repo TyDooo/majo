@@ -1,6 +1,4 @@
-import { container, LogLevel, SapphireClient } from '@sapphire/framework';
-import { Libraries, Shoukaku } from 'shoukaku';
-import { QueueStore } from './music/QueueStore';
+import { LogLevel, SapphireClient } from '@sapphire/framework';
 
 export class MajoClient extends SapphireClient {
 	public constructor() {
@@ -24,28 +22,5 @@ export class MajoClient extends SapphireClient {
 				'DIRECT_MESSAGE_REACTIONS'
 			]
 		});
-		container.queueStore = new QueueStore();
-	}
-
-	public override login(token?: string) {
-		container.shoukaku = new Shoukaku(
-			new Libraries.DiscordJS(this),
-			[{ name: process.env.LAVALINK_NAME as string, url: process.env.LAVALINK_URL as string, auth: process.env.LAVALINK_AUTH as string }],
-			{
-				moveOnDisconnect: false,
-				resumable: true,
-				resumableTimeout: 30,
-				reconnectTries: 2,
-				restTimeout: 10000
-			}
-		);
-		return super.login(token);
-	}
-}
-
-declare module '@sapphire/pieces' {
-	interface Container {
-		shoukaku: Shoukaku;
-		queueStore: QueueStore;
 	}
 }

@@ -15,8 +15,10 @@ export class UserEvent extends Listener {
 	}
 
 	public run() {
+		const { client } = this.container;
 		this.printBanner();
 		this.printStoreDebugInformation();
+		client.audio.init(client.user?.id);
 	}
 
 	private printBanner() {

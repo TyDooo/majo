@@ -249,6 +249,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@discordjs/collection@npm:^0.1.6":
+  version: 0.1.6
+  resolution: "@discordjs/collection@npm:0.1.6"
+  checksum: a0ddf757098fa01a4d9d5812daf3c2ea88c1297618d346705e603642c2f19656188fbfb3d503ee77f2ee69e7a1c1bfe25932aec032692ee3c338335524886e05
+  languageName: node
+  linkType: hard
+
 "@discordjs/collection@npm:^0.4.0":
   version: 0.4.0
   resolution: "@discordjs/collection@npm:0.4.0"
@@ -1469,6 +1476,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"erela.js@npm:^2.3.3":
+  version: 2.3.3
+  resolution: "erela.js@npm:2.3.3"
+  dependencies:
+    "@discordjs/collection": ^0.1.6
+    petitio: ^1.1.0
+    ws: ^7.3.1
+  checksum: a5416cac8613bdb4bd883cbc05d1ceadcf03e4543a3b5eea2f8a199043b8ece94a36b9860788d2a2e1401e506d6455841224c42e89a372f452d4603373f121a2
+  languageName: node
+  linkType: hard
+
 "err-code@npm:^2.0.2":
   version: 2.0.3
   resolution: "err-code@npm:2.0.3"
@@ -2668,6 +2686,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.13.0
     "@typescript-eslint/parser": ^5.13.0
     discord.js: ^13.6.0
+    erela.js: ^2.3.3
     eslint: ^8.10.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.0.0
@@ -3298,6 +3317,13 @@ __metadata:
   dependencies:
     through: ~2.3
   checksum: 3c4a14052a638b92e0c96eb00c0d7977df7f79ea28395250c525d197f1fc02d34ce1165d5362e2e6ebbb251524b94a76f3f0d4abc39ab8b016d97449fe15583c
+  languageName: node
+  linkType: hard
+
+"petitio@npm:^1.1.0":
+  version: 1.4.0
+  resolution: "petitio@npm:1.4.0"
+  checksum: 1219a921e2faae94389bb057a48d4efe8433de493f27b39d7d84427ea2d2a7a5ecf98d39331421c6be7febcac7246cb705458b14503a24bbadc07d6117dcc3ab
   languageName: node
   linkType: hard
 
@@ -4276,6 +4302,21 @@ __metadata:
   version: 1.0.2
   resolution: "wrappy@npm:1.0.2"
   checksum: 159da4805f7e84a3d003d8841557196034155008f817172d4e986bd591f74aa82aa7db55929a54222309e01079a65a92a9e6414da5a6aa4b01ee44a511ac3ee5
+  languageName: node
+  linkType: hard
+
+"ws@npm:^7.3.1":
+  version: 7.5.7
+  resolution: "ws@npm:7.5.7"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ^5.0.2
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: 5c1f669a166fb57560b4e07f201375137fa31d9186afde78b1508926345ce546332f109081574ddc4e38cc474c5406b5fc71c18d71eb75f6e2d2245576976cba
   languageName: node
   linkType: hard
 

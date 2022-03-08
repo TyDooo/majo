@@ -1,6 +1,10 @@
 import './lib/setup';
 import { MajoClient } from './lib/Majo';
 import { container } from '@sapphire/framework';
+import { Config } from './lib/Config';
+
+// Load the config
+container.config = new Config().load();
 
 const client = new MajoClient();
 

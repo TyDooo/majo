@@ -14,7 +14,13 @@ node_modules/
 dist/
 
 # Ignore the config file (contains sensitive information such as tokens)
-config.ts
+config/config.json
+
+# logs
+config/logs/*.log*
+config/logs/*.json
+config/logs/*.log.gz
+config/logs/*-audit.json
 
 # Ignore heapsnapshot and log files
 *.heapsnapshot

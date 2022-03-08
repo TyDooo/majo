@@ -1,16 +1,10 @@
-import { LogLevel, SapphireClient } from '@sapphire/framework';
+import { container, SapphireClient } from '@sapphire/framework';
 import { Manager, Payload } from 'erela.js';
+import type { Config } from './Config';
 
 export class MajoClient extends SapphireClient {
 	public readonly audio: Manager = new Manager({
-		nodes: [
-			{
-				identifier: process.env.LAVALINK_IDENTIFIER,
-				host: process.env.LAVALINK_HOST as string,
-				port: Number(process.env.LAVALINK_PORT),
-				password: process.env.LAVALINK_PASSWORD as string
-			}
-		],
+		nodes: container.config.lavalinkNodes,
 		autoPlay: true,
 		send: (id: string, payload: Payload) => {
 			const guild = this.guilds.cache.get(id);
@@ -20,11 +14,11 @@ export class MajoClient extends SapphireClient {
 
 	public constructor() {
 		super({
-			defaultPrefix: process.env.DEFAULT_PREFIX,
+			defaultPrefix: container.config.defaultPrefix,
 			regexPrefix: /^(hey +)?majo[,! ]/i,
 			caseInsensitiveCommands: true,
 			logger: {
-				level: LogLevel.Debug
+				level: container.config.logLevel
 			},
 			shards: 'auto',
 			intents: [
@@ -40,10 +34,21 @@ export class MajoClient extends SapphireClient {
 			]
 		});
 	}
+
+	public login(): Promise<string> {
+		const { token } = container.config;
+		return super.login(token);
+	}
 }
 
 declare module 'discord.js' {
 	interface Client {
 		readonly audio: Manager;
+	}
+}
+
+declare module '@sapphire/pieces' {
+	interface Container {
+		config: Config;
 	}
 }

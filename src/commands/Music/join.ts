@@ -1,6 +1,7 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { MusicCommand } from '../../lib/commands/MusicCommand';
 import type { GuildMessage } from '../../lib/types/Discord';
+import { getPlayer } from '../../lib/utils/guild';
 
 @ApplyOptions<MusicCommand.Options>({
 	description: 'Makes Majo join a voice channel',
@@ -8,7 +9,7 @@ import type { GuildMessage } from '../../lib/types/Discord';
 })
 export class UserCommand extends MusicCommand {
 	public messageRun(message: GuildMessage) {
-		const player = this.container.client.audio.players.get(message.guild.id);
+		const player = getPlayer(message.guild);
 
 		if (player && player.state === 'CONNECTED') return message.channel.send("I'm already in a voice channel!");
 

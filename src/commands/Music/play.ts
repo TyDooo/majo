@@ -2,6 +2,7 @@ import { ApplyOptions } from '@sapphire/decorators';
 import type { Args, CommandContext } from '@sapphire/framework';
 import { MusicCommand } from '../../lib/commands/MusicCommand';
 import type { GuildMessage } from '../../lib/types/Discord';
+import { getPlayer } from '../../lib/utils/guild';
 
 @ApplyOptions<MusicCommand.Options>({
 	aliases: ['p'],
@@ -18,7 +19,7 @@ export class UserCommand extends MusicCommand {
 	}
 
 	public async messageRun(message: GuildMessage, args: Args, context: CommandContext) {
-		let player = this.container.client.audio.players.get(message.guild.id);
+		let player = getPlayer(message.guild);
 
 		if (!player || player.state !== 'CONNECTED') {
 			await this.join.messageRun(message, args, context);

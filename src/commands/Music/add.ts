@@ -2,17 +2,19 @@ import { ApplyOptions } from '@sapphire/decorators';
 import type { Args } from '@sapphire/framework';
 import type { SearchResult } from 'erela.js';
 import { MusicCommand } from '../../lib/commands/MusicCommand';
+import { RequireMajoInVoiceChannel, RequireSameVoiceChannel } from '../../lib/music/decorators';
 import type { GuildMessage } from '../../lib/types/Discord';
+import { getPlayer } from '../../lib/utils/guild';
 
 @ApplyOptions<MusicCommand.Options>({
 	description: 'Add a track to the queue',
 	flags: ['sc', 'soundcloud']
 })
 export class UserCommand extends MusicCommand {
+	@RequireMajoInVoiceChannel()
+	@RequireSameVoiceChannel()
 	public async messageRun(message: GuildMessage, args: Args) {
-		const player = this.container.client.audio.players.get(message.guild.id);
-
-		if (!player) return message.channel.send("I'm not in a voice channel yet! Please ask me to join first!");
+		const player = getPlayer(message.guild)!;
 
 		const searchResult = (await args.rest('song')) as unknown as SearchResult;
 		switch (searchResult.loadType) {

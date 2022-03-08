@@ -1,6 +1,7 @@
 import { container, SapphireClient } from '@sapphire/framework';
 import { Manager, Payload } from 'erela.js';
 import type { Config } from './Config';
+import { Logger } from './Logger';
 
 export class MajoClient extends SapphireClient {
 	public readonly audio: Manager = new Manager({
@@ -18,7 +19,8 @@ export class MajoClient extends SapphireClient {
 			regexPrefix: /^(hey +)?majo[,! ]/i,
 			caseInsensitiveCommands: true,
 			logger: {
-				level: container.config.logLevel
+				level: container.config.logLevel,
+				instance: new Logger(container.config.logLevel)
 			},
 			shards: 'auto',
 			intents: [

@@ -1,8 +1,8 @@
 import type { CommandSuccessPayload, ListenerOptions, PieceContext } from '@sapphire/framework';
 import { Command, Events, Listener, LogLevel } from '@sapphire/framework';
-import type { Logger } from '@sapphire/plugin-logger';
 import { cyan } from 'colorette';
 import type { Guild, User } from 'discord.js';
+import type { Logger } from '../../lib/Logger';
 
 export class UserEvent extends Listener<typeof Events.CommandSuccess> {
 	public constructor(context: PieceContext, options?: ListenerOptions) {

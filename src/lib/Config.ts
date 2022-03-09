@@ -46,7 +46,7 @@ export class Config {
 	}
 
 	public get logLevel(): LogLevel {
-		return process.env.NODE_ENV === 'development' ? LogLevel.Debug : LogLevel.Error;
+		return process.env.NODE_ENV === 'development' ? LogLevel.Debug : LogLevel.Info;
 	}
 
 	public get color(): ColorResolvable {

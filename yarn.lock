@@ -2759,7 +2759,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^7.4.0":
+"lru-cache@npm:^7.4.1":
   version: 7.4.1
   resolution: "lru-cache@npm:7.4.1"
   checksum: de6d8aa83b0a304943a1e1ec2a982d9b44ef36963c20bd01950f13dcb3eb482c57bfa15ab49b1baa15c682d6d33a10842bb7b33d8a449845009ffab6a2faec3c
@@ -2827,8 +2827,8 @@ __metadata:
   linkType: hard
 
 "make-fetch-happen@npm:^10.0.3":
-  version: 10.0.4
-  resolution: "make-fetch-happen@npm:10.0.4"
+  version: 10.0.5
+  resolution: "make-fetch-happen@npm:10.0.5"
   dependencies:
     agentkeepalive: ^4.2.1
     cacache: ^15.3.0
@@ -2836,17 +2836,17 @@ __metadata:
     http-proxy-agent: ^5.0.0
     https-proxy-agent: ^5.0.0
     is-lambda: ^1.0.1
-    lru-cache: ^7.4.0
+    lru-cache: ^7.4.1
     minipass: ^3.1.6
     minipass-collect: ^1.0.2
-    minipass-fetch: ^2.0.1
+    minipass-fetch: ^2.0.2
     minipass-flush: ^1.0.5
     minipass-pipeline: ^1.2.4
     negotiator: ^0.6.3
     promise-retry: ^2.0.1
     socks-proxy-agent: ^6.1.1
     ssri: ^8.0.1
-  checksum: 036fcfaec18b69ce6384644275850b0871aff105663aecc0130b5c45fe318542d7e2004cf1f4cd26b7c6842c282f8b37f00da67aa3bae13c13693e405480ac74
+  checksum: 150071e41262bffafccafa764bab0e6a929a46be5abc1dfee414ffb821d052942596f3660ff84b17e4d6c44f51b2d2741f6d02a49e2dad44e06c94c3baf624fa
   languageName: node
   linkType: hard
 
@@ -2980,9 +2980,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minipass-fetch@npm:^2.0.1":
-  version: 2.0.2
-  resolution: "minipass-fetch@npm:2.0.2"
+"minipass-fetch@npm:^2.0.2":
+  version: 2.0.3
+  resolution: "minipass-fetch@npm:2.0.3"
   dependencies:
     encoding: ^0.1.13
     minipass: ^3.1.6
@@ -2991,7 +2991,7 @@ __metadata:
   dependenciesMeta:
     encoding:
       optional: true
-  checksum: 0613b0a6ef427609707c2b73b69230348fe3c24b33c144622e8e248404534fa1f125b94c324c555cd665ef623abedab0f7891e460b1c9ac6babc3ab2385b3c18
+  checksum: 78a4a509b1e73f5e63b84065969790373b36b04da586744815c7f7f80013f1d786797842cc33cfa517eba0ad2f2142eb0ac808c46738da1c53e0e3aeed81df11
   languageName: node
   linkType: hard
 

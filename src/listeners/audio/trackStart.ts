@@ -14,7 +14,7 @@ export class UserEvent extends Listener {
 		const embed = new MessageEmbed()
 			.setAuthor({ name: user.username, iconURL: user.displayAvatarURL({ dynamic: true }) })
 			.setTitle('Now playing')
-			.setColor('#65546e')
+			.setColor(this.container.config.color)
 			.setDescription(`:musical_note: ${track.title} :musical_note:`);
 		if (track.thumbnail) embed.setThumbnail(track.thumbnail);
 		return channel.send({ embeds: [embed] });

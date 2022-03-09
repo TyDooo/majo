@@ -1,6 +1,7 @@
 process.env.NODE_ENV ??= 'development';
 
 import { LogLevel } from '@sapphire/framework';
+import type { ColorResolvable } from 'discord.js';
 import type { NodeOptions } from 'erela.js';
 import fs from 'fs';
 import { merge } from 'lodash';
@@ -10,6 +11,7 @@ interface ConfigItems {
 	token?: string;
 	default_prefix?: string;
 	audio_enabled: boolean;
+	color: ColorResolvable;
 	lavalink: {
 		nodes: NodeOptions[];
 	};
@@ -25,6 +27,7 @@ export class Config {
 			token: process.env.DISCORD_TOKEN,
 			default_prefix: process.env.DEFAULT_PREFIX,
 			audio_enabled: false,
+			color: '#65546e',
 			lavalink: {
 				nodes: []
 			}
@@ -44,6 +47,10 @@ export class Config {
 
 	public get logLevel(): LogLevel {
 		return process.env.NODE_ENV === 'development' ? LogLevel.Debug : LogLevel.Error;
+	}
+
+	public get color(): ColorResolvable {
+		return this.data.color;
 	}
 
 	public get audioEnabled(): boolean {

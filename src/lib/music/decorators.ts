@@ -31,6 +31,16 @@ export function RequireSongPresent(): MethodDecorator {
 	);
 }
 
+export function RequireQueueNotEmpty(): MethodDecorator {
+	return createFunctionPrecondition(
+		(message: GuildMessage) => {
+			const track = getPlayer(message.guild);
+			return !isNullish(track) && track.queue.totalSize > 0;
+		},
+		(message: GuildMessage) => message.channel.send('The queue is empty, add some tracks to use this command!')
+	);
+}
+
 export function RequireMajoInVoiceChannel(): MethodDecorator {
 	return createFunctionPrecondition(
 		(message: GuildMessage) => getPlayer(message.guild)?.voiceChannel !== null && getPlayer(message.guild)?.state === 'CONNECTED',

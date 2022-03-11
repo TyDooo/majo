@@ -4,7 +4,7 @@
 
 FROM node:16-buster-slim as base
 
-WORKDIR /opt/app
+WORKDIR /opt/majo
 
 ENV HUSKY=0
 ENV CI=true
@@ -50,6 +50,7 @@ ENTRYPOINT ["dumb-init", "--"]
 
 # Development, used for development only (defaults to watch command)
 FROM base as development
+
 USER node
 
 ENV NODE_ENV="development"
@@ -65,7 +66,7 @@ FROM base as build
 
 RUN npm install
 
-COPY . /opt/app
+COPY . /opt/majo
 
 RUN npm run build
 
@@ -78,11 +79,12 @@ FROM base as production
 
 ENV NODE_ENV="production"
 
-COPY --from=build /opt/app/dist /opt/app/dist
-COPY --from=build /opt/app/node_modules /opt/app/node_modules
-COPY --from=build /opt/app/package.json /opt/app/package.json
+COPY --from=build /opt/majo/dist /opt/majo/dist
+COPY --from=build /opt/majo/node_modules /opt/majo/node_modules
+COPY --from=build /opt/majo/package.json /opt/majo/package.json
 
-RUN chown node:node /opt/app/
+RUN mkdir -p /opt/majo/config
+RUN chown node:node /opt/majo/
 
 USER node
 

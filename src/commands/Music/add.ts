@@ -23,10 +23,15 @@ export class UserCommand extends MusicCommand {
 				player.queue.add(searchResult.tracks[0]);
 				return message.channel.send(`I added \`${searchResult.tracks[0].title}\` to the queue!`);
 			case 'PLAYLIST_LOADED':
-				return message.channel.send('Your query points to a playlist which is currently not supported!');
+				player.queue.add(searchResult.tracks);
+				return message.channel.send(
+					`Added \`${searchResult.tracks.length}\` tracks from the \`${searchResult.playlist?.name}\` playlist to the queue!`
+				);
 			case 'NO_MATCHES':
+				player.destroy();
 				return message.channel.send('There were no results matching your query, try another query!');
 			default:
+				player.destroy();
 				return message.channel.send('I could not find any tracks on the query you provided!');
 		}
 	}
